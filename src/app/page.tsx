@@ -10,7 +10,7 @@ import SectionEditor from '@/components/SectionEditor';
 import ExportImport from '@/components/ExportImport';
 import { Section, WebsiteConfig } from '@/types';
 import { Sparkles, Layers, Zap, Plus, Moon, Sun } from 'lucide-react';
-import { preMadeSections } from '@/data/templates';
+import { preMadeSections } from '@/src/data/templates';
 import PreviewArea from '@/components/PreviewArea';
 import { useTheme } from '@/components/ThemeContext';
 
