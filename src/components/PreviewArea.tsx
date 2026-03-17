@@ -7,7 +7,7 @@ import { Section } from '@/types';
 import { GripVertical, Trash2, Edit2 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { useTheme } from '@/components/ThemeContext';
+import { useTheme } from '../components/ThemeContext';
 
 interface Props {
   sections: Section[];

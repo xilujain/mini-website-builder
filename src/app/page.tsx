@@ -6,13 +6,13 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { DndContext, DragEndEvent, closestCenter } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import gsap from 'gsap';
-import SectionEditor from '@/components/SectionEditor';
-import ExportImport from '@/components/ExportImport';
+import SectionEditor from '../components/SectionEditor';
+import ExportImport from '../components/ExportImport';
 import { Section, WebsiteConfig } from '@/types';
 import { Sparkles, Layers, Zap, Plus, Moon, Sun } from 'lucide-react';
 import { preMadeSections } from '@/src/data/templates';
-import PreviewArea from '@/components/PreviewArea';
-import { useTheme } from '@/components/ThemeContext';
+import PreviewArea from '../components/PreviewArea';
+import { useTheme } from '../components/ThemeContext';
 
 export default function WebsiteBuilder() {
   const [sections, setSections] = useState<Section[]>([]);

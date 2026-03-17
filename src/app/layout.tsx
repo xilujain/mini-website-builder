@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Tajawal } from 'next/font/google'
 import './globals.css'
-import ClientLayout from '@/components/ClientLayout'
+import ClientLayout from '../components/ClientLayout'
 
 const tajawal = Tajawal({ subsets: ["arabic", "latin"], weight: ["400", "500", "700"] })
 

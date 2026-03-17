@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Section } from '@/types';
 import { X, Save, RefreshCw, Image, Type, Palette, Link } from 'lucide-react';
 import gsap from 'gsap';
-import { useTheme } from '@/components/ThemeContext';
+import { useTheme } from '../components/ThemeContext';
 
 interface Props {
   section: Section;
