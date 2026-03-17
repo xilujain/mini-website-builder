@@ -6,7 +6,7 @@
 
 ### Tech stack
 
-- **Framework**: Next.js (App Router, TypeScript)
+- **Framework**: Next.js
 - **Styling**: Tailwind CSS + custom CSS utilities (`glass-effect`, animations)
 - **Drag & Drop**: `@dnd-kit/core`, `@dnd-kit/sortable`
 - **Icons & Animations**:
@@ -27,8 +27,6 @@
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 **Run in development**
@@ -38,13 +36,6 @@ npm run dev
 ```
 
 Then open `http://localhost:3000`.
-
-**Production build**
-
-```bash
-npm run build
-npm start
-```
 
 ---
 
@@ -85,16 +76,6 @@ Click the edit icon on any section to open the **Section Editor** modal:
 
 Changes are saved into `sections` state and immediately reflected in the preview.
 
-#### Light/Dark theme via context
-
-- `ThemeContext` (`components/ThemeContext.tsx`) exposes:
-  - `theme: 'light' | 'dark'`
-  - `toggleTheme()`
-- `ClientLayout` wraps the app in `ThemeProvider`.
-- `page.tsx`, `SectionEditor`, and `PreviewArea` use `useTheme()` to:
-  - Switch backgrounds and text colors.
-  - Adjust card, header, footer, and form styling for each theme.
-
 #### Persistence & JSON import/export
 
 - **Auto‑save**:
@@ -108,27 +89,33 @@ Changes are saved into `sections` state and immediately reflected in the preview
 ---
 
 ### Code structure
-
-- `app/layout.tsx` – Root layout, loads global CSS and wraps children in `ClientLayout`.
-- `app/page.tsx` – Main builder page:
-  - Manages `sections`, DnD, theme toggle, persistence, and the editor modal.
-- `app/globals.css` – Tailwind base import + global styles, scrollbars, glass effects, animations, and theme‑aware body rules.
-- `components/ClientLayout.tsx` – Global UI effects (custom cursor, background blobs) + `ThemeProvider`.
-- `components/ThemeContext.tsx` – Theme context and `useTheme` hook.
-- `components/PreviewArea.tsx` – Renders all sections and their visual variants based on `Section['type']` and theme.
-- `components/SectionEditor.tsx` – Modal editor with per‑type forms and inline preview.
-- `components/ExportImport.tsx` – JSON export/import UI + GSAP animations and feedback toasts.
-- `data/templates.ts` – Default content for each section type.
-- `types/index.ts` – `Section` and `WebsiteConfig` TypeScript interfaces.
-
----
-
-### Extending the builder
-
-To add a new section type:
-
-1. Add the literal to `Section['type']` in `types/index.ts`.
-2. Provide default content in `data/templates.ts`.
-3. Add it to `sectionTypes` in `app/page.tsx`.
-4. Implement its preview in `renderSectionPreview` in `components/PreviewArea.tsx`.
-5. Add a `case` in `renderFieldsByType` in `components/SectionEditor.tsx` for a tailored edit form.
+```bash
+├── app
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+│   ├── ClientLayout.tsx
+│   ├── ExportImport.tsx
+│   ├── PreviewArea.tsx
+│   ├── SectionEditor.tsx
+│   └── ThemeContext.tsx
+├── data
+│   └── templates.ts
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── README.md
+├── tsconfig.json
+└── types
+    └── index.ts
+```
